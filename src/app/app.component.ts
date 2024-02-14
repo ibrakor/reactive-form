@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {ValidacionesPropias} from "./validaciones-propias";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'reactive-form';
+  formularioContacto = new FormGroup({
+    numero: new FormControl('', [ValidacionesPropias.multiplo5])
+  });
+
+  submit() {
+    alert('dato correcto');
+  }
 }
